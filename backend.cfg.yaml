@@ -1,0 +1,8 @@
+$schema: https://unpkg.com/@naturalcycles/backend-lib/resources/backendCfg.schema.json
+
+gaeProject: backend-lib-demo
+gaeService: default
+prodBranch: master
+appEnvDefault: prod
+# appYamlPassEnv: SECRET_ENCRYPTION_KEY
+

@@ -1,0 +1,28 @@
+name: default
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy-job:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    env:
+      NODE_OPTIONS: '--max-old-space-size=3200'
+    steps:
+      - { uses: actions/checkout@v2, with: { persist-credentials: false } }
+      - { uses: actions/setup-node@v2, with: { node-version: 14 } }
+      - uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: deps-v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+      - { name: yarn, run: yarn --frozen-lockfile }
+
+      - name: gcloud auth
+        run: |
+          gcloud auth activate-service-account
+
+      - name: deploy
+        run: |
+          yarn deploy-gae --logs

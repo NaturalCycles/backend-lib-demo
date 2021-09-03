@@ -1,0 +1,38 @@
+{
+  "name": "@naturalcycles/backend-lib-demo",
+  "scripts": {
+    "prepare": "husky install",
+    "docs-serve": "vuepress dev docs",
+    "docs-build": "vuepress build docs",
+    "serve": "DEBUG=app*,nc:* APP_ENV=dev nodemon",
+    "serve-prod": "DEBUG=app*,nc:* APP_ENV=prod nodemon",
+    "startJs": "TS_NODE_PROJECT=./tsconfig.dist.json DEBUG=app*,nc:* APP_ENV=dev yarn start",
+    "start": "node ./dist/startServer.js",
+    "deploy": "deploy-gae"
+  },
+  "dependencies": {
+    "@naturalcycles/backend-lib": "^2.59.2",
+    "@naturalcycles/js-lib": "^14.41.0",
+    "@naturalcycles/nodejs-lib": "^12.32.0",
+    "@sentry/node": "^6.12.0",
+    "sharp": "^0.29.0",
+    "tsconfig-paths": "^3.11.0"
+  },
+  "devDependencies": {
+    "@naturalcycles/dev-lib": "^12.1.3",
+    "@types/node": "^16.7.10",
+    "@types/sharp": "^0.28.6",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-typescript": "^0.3.1"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "version": "0.0.0",
+  "description": "backend-lib demo",
+  "private": true,
+  "author": "Natural Cycles Team",
+  "license": "MIT"
+}

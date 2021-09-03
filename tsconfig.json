@@ -1,0 +1,12 @@
+{
+  "extends": "@naturalcycles/backend-lib/cfg/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["**/__exclude"]
+}
