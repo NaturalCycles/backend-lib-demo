@@ -102,7 +102,7 @@ export interface ImageTransformOptions {
   palette?: boolean
 }
 
-const imageTransformOptionsSchema = new AjvSchema<ImageTransformOptions>(
+const imageTransformOptionsSchema = AjvSchema.create<ImageTransformOptions>(
   jsonSchema.object<ImageTransformOptions>({
     // sourceImageUrl: jsonSchema.string().url(), // url fails for some weird reasons
     sourceImageUrl: jsonSchema.string(),
